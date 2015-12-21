@@ -42,7 +42,7 @@ frames[].window // all child frames with location.href !== iframe.src (or those 
 ```
 
 #Usage instructions:
-###for expiremental deployment, skip to "**Expiremental Deployment**".###
+###For expiremental deployment, skip to "**Expiremental Deployment**".###
 Simply, place the script tag of XSSB right before any other third-party scripts included into your webpage(s), typically in the top of the head tag, as such:
 ```html
 <head>
@@ -55,13 +55,13 @@ Simply, place the script tag of XSSB right before any other third-party scripts 
 Beware, as [Dr. Mario](https://twitter.com/0x6D6172696F) once said: "The order of deployment is everything". Thus, the deployment precedence of this very XSSBuster.js is critical...meaning that -ideally- this script has to be included right before any other scripts by all means!
 
 #Expiremental Deployment:
-Before the actual deployment of XSSB into your webapp, you may consider the report-only version "variations/XSSB-report.js" which doesn't mak)e any changes to the DOM, but rather reports any violations to an endpoint of your choice.
-
-#Known Issues:
-As XSSB makes use of this whitelist character class within its core regular expression "[]", it may only be compitable with languages that consists of -basic- latin characters (such as English and French). If you're dealing with multiple languages, please consider using the variation "variations/XSSB-multilingual.js" instead--but note that this variation relies upon a total blacklist-based regex, which is not typically as secure as the default whitelist-based one.
+Before the actual deployment of XSSB into your webapp, you may consider the report-only version "[variations/XSSB-report.js](/variations/XSSB-report.js)" which doesn't make any changes to the DOM, but rather reports any violations to an endpoint of your choice.
 
 #Compatibility:
-XSSB is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most legacy browsers through fallback functionality....
+XSSB is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most -if not all- legacy browsers through fallback functionality....
+
+#Known Issues:
+As XSSB makes use of this whitelist character class within its core regular expression "[]", it may only be compitable with languages that consists of -basic- latin characters (such as English and French). If you're dealing with multiple languages, please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead--but note that this variation relies upon a total blacklist-based regex, which is not typically as secure as the default whitelist-based one.
 
 #Credits:
 A shoutout to all the people who have supported or contributed to this project in any way. In particular, those whose names are listed below for their significant contributions:
