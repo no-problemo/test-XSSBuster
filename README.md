@@ -4,7 +4,7 @@ XSSBuster.js is a generic DOM sanitizer defending against client-side injection 
 
 XSSB may NOT alter or pollute the global namespace in any way at all, thus considered safe to integrate with any existing code/libraries.
 
-The Problem:
+#The Problem:
 It's a given that third-party scripts integration (be it for web analytics, advertisement, social widgets, et al) do extend the attack surface of your website/webapp, and can open a window for novel client-side injections--most notably, DOM-based XSS attacks. Here are some stories:
 * [http://www.troyhunt.com/2015/07/how-i-got-xssd-by-my-ad-network.html](http://www.troyhunt.com/2015/07/how-i-got-xssd-by-my-ad-network.html)
 * [https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval/](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)
