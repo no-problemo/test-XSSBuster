@@ -2,7 +2,7 @@
 
 **XSSBuster.js** is a proactive DOM sanitizer defending against client-side injection attacks, more specifically, DOM-based and reflected cross-site-scripting attacks.
 
-**XSSB** may NOT alter or pollute the global namespace in any way, thus considered safe to integrate with any existing code/libraries.
+<i>XSSB</i> may <i>NOT</i> alter or pollute the global namespace in any way, thus considered safe to integrate with any existing code/libraries.
 
 #The Problem:
 It's a given that third-party scripts integration (be it for web analytics, advertisement, social widgets, et al) do extend the attack surface of your website/webapp, and can open a window for novel client-side injection attacks — most notably, DOM-based XSSes. Here are some stories:
@@ -14,12 +14,12 @@ It's a given that third-party scripts integration (be it for web analytics, adve
 So, in brief, even a single third-party script integration into your DOM can be too much risk. Furthermore, a CSP policy is not always the answer and [by no means a practical silver bullet for XSS attacks](http://blog.innerht.ml/csp-2015); ...breaking integrated libraries? Requiring non-trivial code changes? [Unsecure whitelisted CDNs](https://github.com/cure53/XSSChallengeWiki/wiki/H5SC-Minichallenge-3:-%22Sh*t,-it's-CSP!%22)? Too much restrictions? [legacy browsers support -IE-](http://caniuse.com/csp)? [Potential XSSIs](https://www.kittenpics.org/wp-content/uploads/2015/11/blackhat-eu-15.pdf)? [Need to allow unsafe-eval](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)?
 
 #The Solution:
-**XSSB** basically audits all the various input sources -which can be tampered directly by an attacker- on the fly, sanitizing them from any potentially-harmful characters in a whitelist-based manner before they are accessed by other intergrated scripts, thus eliminating the risk of any harmful injection attacks that might occure....
+</i>XSSB</i> basically audits all the various input sources -which can be tampered directly by an attacker- on the fly, sanitizing them from any potentially-harmful characters in a whitelist-based manner before they are accessed by other intergrated scripts, thus eliminating the risk of any harmful injection attacks that might occure....
 
-So, basically, **XSSB** offers you the freedom to deploy any given third-party scripts into your DOM, while at the same time covering your DOM's back!
+So, basically, <i>XSSB</i> offers you the freedom to deploy any given third-party scripts into your DOM, while at the same time covering your DOM's back!
 
 #Performance:
-**XSSB** only takes [10ms on average](/tests/perf) to do all required checks alongside registring a few necessary event listeners seamlessly.
+<i>XSSB</i> only takes [10ms on average](/tests/perf) to do all required checks alongside registring a few necessary event listeners seamlessly.
 
 #Clarifications:
 * The only purpose of this DOM sanitizer is to protect the DOM of your webapp from being exposed to exploitable client-side injection flaws that might be introduced by any integrated third-party scripts.
@@ -54,16 +54,16 @@ Simply, place the script tag of **XSSBuster.js** right before any other third-pa
 </head>
 ```
 
-Beware, as [Dr. Mario](https://twitter.com/0x6D6172696F) once said: "The order of deployment is everything". Thus, the deployment precedence of this very **XSSB** is critical...meaning that -ideally- this script has to be included right before any other scripts by all means!
+Beware, as [Dr. Mario](https://twitter.com/0x6D6172696F) once said: "**The order of deployment is everything**". Thus, the deployment precedence of this very **XSSB** is critical...meaning that -ideally- this script has to be included right before any other scripts by all means!
 
 #Expiremental Deployment:
 Before the actual deployment of **XSSB** into your webapp, you may consider the report-only version "[variations/XSSB-report.js](/variations/XSSB-report.js)" which doesn't make any changes to the DOM, but rather reports any violations to an endpoint of your choice.
 
 #Compatibility:
-**XSSB** is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most -if not all- legacy browsers through fallback functionality....
+<i>XSSB</i> is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most -if not all- legacy browsers through fallback functionality....
 
 #Known Issues:
-* As **XSSB** makes use of this whitelist character class within its core regular expression "{% highlight javascript linenos %}[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]{% endhighlight %}", it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead — but note that this variation relies solely on a blacklist-based regex, which is not typically as robust as the original whitelist-based one.
+* As <i>XSSB</i> makes use of this whitelist character class ```[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]``` within its core regular expression, it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead — but note that this variation relies solely on a blacklist-based regex, which is not typically as robust as the original whitelist-based one.
 
 #Credits:
 A shoutout to all the people who have supported or contributed to this project in any way. In particular, those whose names are listed below for their significant contributions:
