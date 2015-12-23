@@ -28,7 +28,7 @@ So, basically, **XSSB** offers you the freedom to deploy any given third-party s
 
 * While significantly hindering the exploitation of DOM-based XSS injections, there might still be a narrow window for limited exploitability in some edge-cases (just remember to [protect any critical variables/objects](https://www.owasp.org/images/a/a3/Mario_Heiderich_OWASP_Sweden_Locking_the_throneroom.pdf)).
 
-##What DOM properties/listeners are covered?##
+##What DOM Properties/Listeners are Covered?##
 *Note: The one and only rule here, is not to trust any property that can be set, modified, or influenced by any other origins.*
 ```javascript
 window.name
