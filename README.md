@@ -5,13 +5,13 @@
 **XSSB** may NOT alter or pollute the global namespace in any way, thus considered safe to integrate with any existing code/libraries.
 
 #The Problem:
-It's a given that third-party scripts integration (be it for web analytics, advertisement, social widgets, et al) do extend the attack surface of your website/webapp, and can open a window for novel client-side injection attacks —— most notably, DOM-based XSSes. Here are some stories:
+It's a given that third-party scripts integration (be it for web analytics, advertisement, social widgets, et al) do extend the attack surface of your website/webapp, and can open a window for novel client-side injection attacks — most notably, DOM-based XSSes. Here are some stories:
 * [http://www.troyhunt.com/2015/07/how-i-got-xssd-by-my-ad-network.html](http://www.troyhunt.com/2015/07/how-i-got-xssd-by-my-ad-network.html)
 * [https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval/](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)
 * [http://www.fuzzysecurity.com/tutorials/14.html](http://www.fuzzysecurity.com/tutorials/14.html)
 * [http://blog.mindedsecurity.com/2011/04/god-save-omniture-quine.html](http://blog.mindedsecurity.com/2011/04/god-save-omniture-quine.html)
 
-So, in brief, even a single third-party script integration into your DOM can be too much risk. Furthermore, a CSP policy is not always the answer and (http://blog.innerht.ml/csp-2015)[by no means a practical silver bullet for XSS attacks]; ...breaking integrated libraries? Requiring non-trivial code changes? [Unsecure whitelisted CDNs](https://github.com/cure53/XSSChallengeWiki/wiki/H5SC-Minichallenge-3:-%22Sh*t,-it's-CSP!%22)? Too much restrictions? [legacy browsers support -IE-](http://caniuse.com/csp)? [Potential XSSIs](https://www.kittenpics.org/wp-content/uploads/2015/11/blackhat-eu-15.pdf)? [Need to allow unsafe-eval](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)?
+So, in brief, even a single third-party script integration into your DOM can be too much risk. Furthermore, a CSP policy is not always the answer and [by no means a practical silver bullet for XSS attacks](http://blog.innerht.ml/csp-2015); ...breaking integrated libraries? Requiring non-trivial code changes? [Unsecure whitelisted CDNs](https://github.com/cure53/XSSChallengeWiki/wiki/H5SC-Minichallenge-3:-%22Sh*t,-it's-CSP!%22)? Too much restrictions? [legacy browsers support -IE-](http://caniuse.com/csp)? [Potential XSSIs](https://www.kittenpics.org/wp-content/uploads/2015/11/blackhat-eu-15.pdf)? [Need to allow unsafe-eval](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)?
 
 #The solution:
 **XSSB** basically audits the various input sources -which can be tampered directly by an attacker- sanitizing them from any potantially-harmful characters in a whitelist-based manner before they are accessed by any other scripts, thus eliminating the risk of any harmful injection attacks that might occure....
@@ -61,7 +61,7 @@ Before the actual deployment of **XSSB** into your webapp, you may consider the 
 **XSSB** is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most -if not all- legacy browsers through fallback functionality....
 
 #Known Issues:
-* As **XSSB** makes use of this whitelist character class within its core regular expression "[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]", it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead——but note that this variation relies solely on a blacklist-based regex, which is not typically as secure as the default whitelist-based one.
+* As **XSSB** makes use of this whitelist character class within its core regular expression "[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]", it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead — but note that this variation relies solely on a blacklist-based regex, which is not typically as secure as the default whitelist-based one.
 
 #Credits:
 A shoutout to all the people who have supported or contributed to this project in any way. In particular, those whose names are listed below for their significant contributions:
