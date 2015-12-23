@@ -61,7 +61,7 @@ Before the actual deployment of **XSSB** into your webapp, you may consider the 
 **XSSB** is compatible with all modern browsers (Firefox, Chrome, IE9+, Edge and Opera) as well as most -if not all- legacy browsers through fallback functionality....
 
 #Known Issues:
-* As **XSSB** makes use of this whitelist character class within its core regular expression "[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]", it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead — but note that this variation relies solely on a blacklist-based regex, which is not typically as secure as the default whitelist-based one.
+* As **XSSB** makes use of this whitelist character class within its core regular expression "[{\w \/\-+=\_$#@!&*|,.?:<>[\]()'";}]", it may only be compitable with languages that rely on basic latin characters (such as English and French). If this can cause you problems (like breaking the search functionality), please consider using the variation "[variations/XSSB-multilingual.js](/variations/XSSB-multilingual.js)" instead — but note that this variation relies solely on a blacklist-based regex, which is not typically as robust as the original whitelist-based one.
 
 #Credits:
 A shoutout to all the people who have supported or contributed to this project in any way. In particular, those whose names are listed below for their significant contributions:
