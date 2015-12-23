@@ -14,7 +14,7 @@ It's a given that third-party scripts integration (be it for web analytics, adve
 So, in brief, even a single third-party script integration into your DOM can be too much risk. Furthermore, a CSP policy is not always the answer and [by no means a practical silver bullet for XSS attacks](http://blog.innerht.ml/csp-2015); ...breaking integrated libraries? Requiring non-trivial code changes? [Unsecure whitelisted CDNs](https://github.com/cure53/XSSChallengeWiki/wiki/H5SC-Minichallenge-3:-%22Sh*t,-it's-CSP!%22)? Too much restrictions? [legacy browsers support -IE-](http://caniuse.com/csp)? [Potential XSSIs](https://www.kittenpics.org/wp-content/uploads/2015/11/blackhat-eu-15.pdf)? [Need to allow unsafe-eval](https://blogs.dropbox.com/tech/2015/09/csp-the-unexpected-eval)?
 
 #The solution:
-**XSSB** basically audits the various input sources -which can be tampered directly by an attacker- sanitizing them from any potantially-harmful characters in a whitelist-based manner before they are accessed by any other scripts, thus eliminating the risk of any harmful injection attacks that might occure....
+**XSSB** basically audits all the various input sources -which can be tampered directly by an attacker- on the fly, sanitizing them from any potentially-harmful characters in a whitelist-based manner before they are accessed by other intergrated scripts, thus eliminating the risk of any harmful injection attacks that might occure....
 
 So, basically, **XSSB** offers you the freedom to deploy any given third-party scripts into your DOM, while at the same time covering your DOM's back!
 
@@ -24,14 +24,16 @@ So, basically, **XSSB** offers you the freedom to deploy any given third-party s
 #Clarifications:
 * The only purpose of this DOM sanitizer is to protect the DOM of your webapp from being exposed to exploitable client-side injection flaws that might be introduced by any integrated third-party scripts.
 
-* While this **XSSB** can practically turn any reflected or DOM-based XSS vulnerabilities fairly unexploitable, it cannot in any way protect against stored XSS injections as it's the responsibilty of your back-end code/framework to sanitize any data forged to the server-side before processing with it any further. Hence, a non-strict CSP policy here might come in handy as a defense in depth in conjunction with **XSSB**.
+* While this **XSSB** can practically turn any reflected or DOM-based XSS vulnerabilities fairly unexploitable, it cannot -in any feasible way- defend against stored XSS injections as it's the responsibilty of your back-end code/framework to sanitize any data forged to the server-side before processing with it any further. Hence, a non-strict CSP policy here might come in handy as a defense in depth in conjunction with **XSSB**.
 
 * While significantly hindering the exploitation of DOM-based XSS injections, there might still be a narrow window for limited exploitability in some edge-cases (just remember to [protect any critical variables/objects](https://www.owasp.org/images/a/a3/Mario_Heiderich_OWASP_Sweden_Locking_the_throneroom.pdf)).
 
-##What DOM properties are covered?##
+##What DOM properties/listeners are covered?##
 *Note: The one and only rule here, is not to trust any property that can be set, modified, or influenced by any other origins.*
 ```javascript
 window.name
+window.onmessage
+window.onhashchange
 location.pathname
 location.search
 location.hash
