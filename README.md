@@ -24,12 +24,12 @@ So, basically, **XSSB** offers you the freedom to deploy any given third-party s
 #Clarifications:
 * The only purpose of this DOM sanitizer is to protect the DOM of your webapp from being exposed to exploitable client-side injection flaws that might be introduced by any integrated third-party scripts.
 
-* While this **XSSBuster** can practically turn any reflected or DOM-based XSS vulnerabilities fairly unexploitable, it cannot in any way protect against stored XSS injections as it's the responsibilty of your back-end code/framework to sanitize any data forged to the server-side before processing with it any further. Hence, a non-strict CSP policy here might come in handy as a defense in depth in conjunction with **XSSB**.
+* While this **XSSB** can practically turn any reflected or DOM-based XSS vulnerabilities fairly unexploitable, it cannot in any way protect against stored XSS injections as it's the responsibilty of your back-end code/framework to sanitize any data forged to the server-side before processing with it any further. Hence, a non-strict CSP policy here might come in handy as a defense in depth in conjunction with **XSSB**.
 
 * While significantly hindering the exploitation of DOM-based XSS injections, there might still be a narrow window for limited exploitability in some edge-cases (just remember to [protect any critical variables/objects](https://www.owasp.org/images/a/a3/Mario_Heiderich_OWASP_Sweden_Locking_the_throneroom.pdf)).
 
 ##What DOM properties are covered?##
-*Note: The one and only rule here is not to trust any property that can be set, modified, or influenced by another origin.*
+*Note: The one and only rule here is not to trust any property that can be set, modified, or influenced by any other origins.*
 ```javascript
 window.name
 location.pathname
